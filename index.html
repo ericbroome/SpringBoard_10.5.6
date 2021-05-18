@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Object Enhancements - SpringBoard 10.5.6</title>
+  <!-- Jasmine -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine-html.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/boot.js"></script>
+<!-- highlight.js -->    
+    <link rel="stylesheet" href="highlight/vs2015.css">
+    <script src="highlight/highlight.js"></script>
+<!-- Local scripts-->
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.test.js"></script>
+ </head>
+  <body>
+    <div style="display:grid; grid-template-columns: 3; grid-template-rows: 1; width: 100%">
+      <div style="width: 33%; grid-column: 1;" href="#Testing"><a style="grid-column: 1;" href="#Testing">Click here to see the tests or just scroll down</a></div>
+      <div style="width: 33%; grid-column: 2; justify-items: center;"><a href="https://highlightjs.org/" target="_blank">Syntax highlighting by Highlight.js</a></div>
+      <div style="width: 33%; grid-column: 3; justify-items: right;"><a href="https://github.com/ericbroome/SpringBoard_10.5.6" target="_blank">GitHub Source</a></div>
+      </div>
+      <div id="theScript">
+      <pre><code class="javascript">
+        /* Takes a variable number of arguments and filters out odd numbers */
+        const filterOutOdds = (...args) => {
+            return args.filter(arg => arg % 2 === 0);
+        }
+        
+        /* Takes a variable number of arguments and returns the smallest number */
+        const findMin = (...args) => {
+            return Math.min(...args);
+        }
+        
+        /* Takes two objects and returns a new object which contains all of the keys and values of the first and second object */
+        const mergeObjects = (obj1, obj2) => {
+            return ({...obj1, ...obj2});
+        }
+        
+        /* Takes an array and a variable number of args returns a new array after appending the new items then doubling all items */
+        const doubleAndReturnArgs = (arr, ...args) => {
+            return [...arr, ...args].map(element => element * 2);
+        }
+        
+        /* remove a random element in the items array
+        and return a new array without that item. */
+        const removeRandom = (items) => {
+            let index = Math.floor(Math.random() * items.length);
+            let result = [...items];
+            result.splice(index, 1);
+            return result;
+        };
+        
+        /* Return a new array with every item in array1 and array2. */
+        const extend = (array1, array2) => {
+            return [...array1, ...array2];
+        };
+        
+        /* Return a new object with all the keys and values
+        from obj and a new key/value pair */
+        const addKeyVal = (obj, key, val) => {
+            let result = {...obj};
+            result[key] = val;
+            return result;
+        };
+        
+        /* Return a new object with a key removed. */
+        const removeKey = (obj, key) => {
+            let result = {...obj};
+            delete result[key];
+            return result;
+        };
+        
+        /* Combine two objects and return a new object. */
+        const combine = (obj1, obj2) => ({...obj1, ...obj2});
+        
+        /* Return a new object with a modified key and value. */
+        const update = (obj, key, val) => {
+            let result = {...obj};
+            result[key] = val;
+            return result;
+        };        
+      </code></pre>
+    </div>
+    <script>hljs.highlightAll();</script>
+    <a name="Testing"></a>
+  </body>
+</html>
