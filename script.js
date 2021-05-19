@@ -4,12 +4,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const xhrTheTest = new XMLHttpRequest();
     xhrTheScript.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-           document.querySelector("#theScript").innerText = this.responseText;
+           document.querySelector("#theScript").innerHTML = this.responseText;
         }
     };
     xhrTheTest.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-           document.querySelector("#theTest").innerText = this.responseText;
+           document.querySelector("#theTest").innerHTML = this.responseText;
         }
     };
     
