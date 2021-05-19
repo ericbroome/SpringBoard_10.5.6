@@ -18,7 +18,7 @@ describe("objectMethods", () => {
     it("Use object method shorthand to declare/define a member method in an object literal", () => {
         let firstName = "Felicia";
         instructor.firstName = firstName;
-        let result = instructor.sayBye();  //Do it this way for debugging, since breakpoints in the literal object aren't working for some reason
+        let result = instructor.sayBye();  
         expect(result).toEqual(firstName + " says bye!");
     })
 });
