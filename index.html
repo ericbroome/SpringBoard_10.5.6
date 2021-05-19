@@ -23,6 +23,36 @@
     <h2>script.js</h2>
     <pre>
       <code id="theCode" class="javascript">
+        /* Same keys and Values */
+        const createInstructor = function(firstName, lastName) {
+            return {
+                firstName, 
+                lastName
+            }
+        }
+        
+        /* Object methods */
+        const instructor = {
+            firstName: "Juan",
+            /* Computed property names */
+            [6 * 7]: "That is my favorite",
+            sayHi() {
+                return "Hi!";
+            },
+            sayBye() {
+                return this.firstName + " says bye!";
+            }
+        }
+        
+        /* createAnimal */
+        const createAnimal = (species, verb, noise) => {
+            return {
+                species,
+                [verb]() {
+                    return noise;
+                }
+            }
+        }
       </code>
     </pre>
     <hr />
@@ -30,6 +60,40 @@
     <div class="code-block">
       <pre>
         <code id="theTest" class="javascript">
+
+          describe("createInstructor", () => {
+            it("Takes a first name and a last name and returns an object {firstName: firstName, lastName: lastName", () => {
+                let instructor = {firstName: "David", lastName: "Williams"};
+                expect(createInstructor("David", "Williams")).toEqual(instructor);
+            })
+          });
+        
+        describe("computePropertyNames", () => {
+            it("Compute the property name in an object literal", () => {
+                let value = "That is my favorite";
+                let key = 42;
+                expect(instructor[key]).toEqual(value);
+            })
+          });
+        
+        describe("objectMethods", () => {
+            it("Use object method shorthand to declare/define a member method in an object literal", () => {
+                let firstName = "Felicia";
+                instructor.firstName = firstName;
+                let result = instructor.sayBye();  //Do it this way for debugging, since breakpoints in the literal object aren't working for some reason
+                expect(result).toEqual(firstName + " says bye!");
+            })
+          });
+        
+        describe("create animal", () => {
+            it("Accepts a species, a verb, and a noise which is returned when the verb is invoked", () => {
+                let species = "snake";
+                let verb = "warn";
+                let noise = "rattle";
+                let animal = createAnimal(species, verb, noise);
+                expect(animal.warn()).toEqual("rattle");
+            })
+          });
         </code>
       </pre>
     </div>
@@ -46,7 +110,6 @@
 
   <script src="highlight/highlight.js"></script>
 <!-- Local scripts-->
-  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="thescript.js"></script>
   <script type="text/javascript" src="thescript.test.js"></script> 
 </body>
